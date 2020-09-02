@@ -1,0 +1,27 @@
+{
+  "name": "create-koaman",
+  "version": "0.0.0",
+  "description": "创建 KoaMan 应用",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koamanjs/create-koaman.git"
+  },
+  "author": "lijialiang@yy.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/koamanjs/create-koaman/issues"
+  },
+  "homepage": "https://github.com/koamanjs/create-koaman#readme",
+  "bin": {
+    "create-koaman": "index.js"
+  },
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "del": "^5.1.0",
+    "execa": "^4.0.3",
+    "fs-extra": "^9.0.1",
+    "glob": "^7.1.6",
+    "inquirer": "^7.3.3"
+  }
+}

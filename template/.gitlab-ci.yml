@@ -1,0 +1,21 @@
+stages:
+  - release
+
+release:
+  stage: release
+  tags:
+    - webfe
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - index.js
+      - km.*
+      - pm2.config.js
+      - package.json
+  script:
+    - echo 'KoaMan Release'
+  after_script:
+    - git log -1 --pretty=medium >> gitlog
+  only:
+    - test
+    - master

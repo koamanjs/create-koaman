@@ -10,35 +10,27 @@ const glob = require('glob')
 const rootDir = process.cwd()
 
 ;(async () => {
-  const { projectName } = await inquirer.prompt([{
-    type: 'input',
-    name: 'projectName',
-    message: '请输出项目名称',
-    validate (input) {
-      const done = this.async()
+  const projectName = path.parse(rootDir).name
 
-      if (!input) {
-        done('名称不能为空')
-        return
-      }
-
-      done(null, true)
-    }
+  const { isBuild } = await inquirer.prompt([{
+    type: 'confirm',
+    name: 'isBuild',
+    message: `是否生成项目 ${chalk.blueBright(projectName)}`,
+    default: true
   }])
 
-  // 项目路径
-  const projectPath = path.resolve(rootDir, projectName)
-
-  if (fs.existsSync(projectPath)) {
-    console.log(chalk.red.bold('项目已存在'))
+  if (!isBuild) {
     return
   }
 
-  // 创建文件夹
-  fs.mkdirSync(projectPath)
-
   // 创建 package.json
   const packageJsonPath = path.resolve(projectPath, 'package.json')
+
+  if (fs.existsSync(packageJsonPath)) {
+    console.log(chalk.red('项目已存在'))
+    return
+  }
+
   const packageJsonContent =
 `{
   "name": "${projectName}",
@@ -79,6 +71,11 @@ const rootDir = process.cwd()
   // 安装开发依赖
   const eslintInstallCommand = `yarn add --dev eslint eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise eslint-plugin-standard`
   await execa.command(eslintInstallCommand, { stdio: 'inherit', cwd: projectPath })
+
+  // 锁定 koaman 版本
+  const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'))
+  packageJson.dependencies.koaman = packageJson.dependencies.koaman.replace('^', '')
+  fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2))
 
   console.log(chalk.green('success'))
 })()

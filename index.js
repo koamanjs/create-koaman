@@ -7,10 +7,10 @@ const inquirer = require('inquirer')
 const execa = require('execa')
 const del = require('del')
 const glob = require('glob')
-const rootDir = process.cwd()
+const projectPath = process.cwd()
 
 ;(async () => {
-  const projectName = path.parse(rootDir).name
+  const projectName = path.parse(projectPath).name
 
   const { isBuild } = await inquirer.prompt([{
     type: 'confirm',

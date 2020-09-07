@@ -7,23 +7,8 @@ const TEST_NAME = `${name}/test`
 // pm2 正式环境名称
 const PROD_NAME = `${name}/production`
 
-// 测试数据库配置
-const TEST_DB = {
-  host: '',
-  port: 3306,
-  db: '',
-  account: '',
-  password: ''
-}
-
-// 生产数据库配置
-const PROD_DB = {
-  host: '',
-  port: 3306,
-  db: '',
-  account: '',
-  password: ''
-}
+// DB 配置
+const { TEST_DB, PROD_DB } = require('./config.db')
 
 // 端口号
 const PORT = 10001

@@ -2,9 +2,9 @@ const Koa = require('koaman')
 const app = new Koa()
 
 app
+  .cors()
   .logger()
   .errorHandler()
-  .cors()
   // .model()
   .controller()
   .router()

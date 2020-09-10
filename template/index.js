@@ -4,6 +4,7 @@ const app = new Koa()
 app
   .cors()
   .logger()
+  .util()
   .errorHandler()
   // .model()
   .controller()

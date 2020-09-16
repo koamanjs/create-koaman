@@ -7,6 +7,7 @@ app
   .util()
   .errorHandler()
   // .model()
+  .service()
   .controller()
   .router()
 

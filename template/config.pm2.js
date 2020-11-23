@@ -9,9 +9,14 @@ const PROD_NAME = `${name}/production`
 
 // DB 配置
 const { TEST_DB, PROD_DB } = require('./config.db')
-
-// 端口号
+// UDP 服务
+const UDP_SERVE_CONFIG = require('./config.udp_serve')
+// Redis 配置
+const { TEST_REDIS, PROD_REDIS } = require('./config.redis')
+// Http 端口号
 const PORT = 10001
+// UDP 服务端口号
+const UDP_PORT = 10009
 
 // PM2 配置
 module.exports = {
@@ -21,6 +26,9 @@ module.exports = {
       script,
       env: {
         NODE_ENV: 'test',
+        UDP_PORT,
+        UDP_SERVE_CONFIG: JSON.stringify(UDP_SERVE_CONFIG),
+        REDIS_CONFIG: JSON.stringify(TEST_REDIS),
         DB: JSON.stringify(TEST_DB),
         PORT
       }
@@ -33,6 +41,9 @@ module.exports = {
       // instance_var: 'INSTANCE_ID',
       env: {
         NODE_ENV: 'production',
+        UDP_PORT,
+        UDP_SERVE_CONFIG: JSON.stringify(UDP_SERVE_CONFIG),
+        REDIS_CONFIG: JSON.stringify(PROD_REDIS),
         DB: JSON.stringify(PROD_DB),
         PORT
       }

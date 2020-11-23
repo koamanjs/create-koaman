@@ -1,5 +1,7 @@
 name: User
 
+db: main
+
 table: user
 
 field:

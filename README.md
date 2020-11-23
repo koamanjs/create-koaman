@@ -6,9 +6,7 @@
 
 ```sh
 $ mkdir demo
-
 $ cd demo
-
 $ yarn create koaman
 ```
 

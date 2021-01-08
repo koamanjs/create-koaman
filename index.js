@@ -47,7 +47,7 @@ const projectPath = process.cwd()
   fs.writeFileSync(packageJsonPath, packageJsonContent)
 
   // 创建 .gitignore
-  fs.writeFileSync(path.resolve(projectPath, '.gitignore'), 'logs')
+  fs.writeFileSync(path.resolve(projectPath, '.gitignore'), 'logs\ntmp\n')
 
   // 复制项目模板
   const template = path.resolve(__dirname, 'template')

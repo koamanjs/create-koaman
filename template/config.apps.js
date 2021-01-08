@@ -6,7 +6,8 @@ const script = packageJson.main
 const TEST_NAME = `${name}/test`
 // pm2 正式环境名称
 const PROD_NAME = `${name}/production`
-
+// 临时文件夹
+const PATH_TMP = require('./config.tmp')
 // DB 配置
 const { TEST_DB, PROD_DB } = require('./config.db')
 // UDP 服务
@@ -29,6 +30,7 @@ module.exports = {
         UDP_PORT,
         UDP_SERVE_CONFIG: JSON.stringify(UDP_SERVE_CONFIG),
         REDIS_CONFIG: JSON.stringify(TEST_REDIS),
+        PATH_TMP,
         DB: JSON.stringify(TEST_DB),
         PORT
       }
@@ -44,6 +46,7 @@ module.exports = {
         UDP_PORT,
         UDP_SERVE_CONFIG: JSON.stringify(UDP_SERVE_CONFIG),
         REDIS_CONFIG: JSON.stringify(PROD_REDIS),
+        PATH_TMP,
         DB: JSON.stringify(PROD_DB),
         PORT
       }

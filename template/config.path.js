@@ -4,4 +4,4 @@ const tmpPath = path.resolve(__dirname, 'tmp')
 
 !fs.existsSync(tmpPath) && fs.mkdirSync(tmpPath)
 
-module.exports = tmpPath
+module.exports = { tmpPath }

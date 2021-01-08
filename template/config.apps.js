@@ -6,8 +6,8 @@ const script = packageJson.main
 const TEST_NAME = `${name}/test`
 // pm2 正式环境名称
 const PROD_NAME = `${name}/production`
-// 临时文件夹
-const PATH_TMP = require('./config.tmp')
+// 文件夹：临时文件夹
+const { tmpPath: PATH_TMP } = require('./config.path')
 // DB 配置
 const { TEST_DB, PROD_DB } = require('./config.db')
 // UDP 服务

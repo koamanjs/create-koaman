@@ -1,7 +1,7 @@
 const path = require('path')
 const fs = require('fs')
-const tmpDirPath = path.resolve(__dirname, 'tmp')
+const tmpPath = path.resolve(__dirname, 'tmp')
 
-!fs.existsSync(tmpDirPath) && fs.mkdirSync(tmpDirPath)
+!fs.existsSync(tmpPath) && fs.mkdirSync(tmpPath)
 
-module.exports = tmpDirPath
+module.exports = tmpPath

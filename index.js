@@ -69,7 +69,7 @@ const projectPath = process.cwd()
   await execa.command('yarn add koaman', { stdio: 'inherit', cwd: projectPath })
 
   // 安装开发依赖
-  const eslintInstallCommand = `yarn add --dev eslint eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise eslint-plugin-standard`
+  const eslintInstallCommand = `yarn add --dev eslint eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise`
   await execa.command(eslintInstallCommand, { stdio: 'inherit', cwd: projectPath })
 
   // 锁定 koaman 版本

@@ -1,6 +1,6 @@
 {
   "name": "create-koaman",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "创建 KoaMan 应用",
   "main": "index.js",
   "repository": {
